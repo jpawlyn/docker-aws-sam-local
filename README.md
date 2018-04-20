@@ -4,9 +4,12 @@
 This is the source repository of the [Docker image](https://hub.docker.com/r/cnadiminti/aws-sam-local/) for [Amazon AWS SAM Local](https://github.com/awslabs/aws-sam-local).
 
 ## Supported tags and respective `Dockerfile` links
+-	[`latest` (*latest/Dockerfile*)](Dockerfile)
+- [`0.2.2` (*0.2.2/Dockerfile*)](Dockerfile)
+- [`0.2.8` (*0.2.8/Dockerfile*)](Dockerfile)
 
--	[`latest` (*latest/Dockerfile*)](https://github.com/cnadiminti/docker-aws-sam-local/blob/master/Dockerfile)
-- [`0.2.2` (*0.2.2/Dockerfile*)](https://github.com/cnadiminti/docker-aws-sam-local/blob/master/Dockerfile)
+For more up to date images go to https://docker.com/u/xevo/aws-sam-local or just
+search the Docker Hub
 
 
 ## What is AWS SAM Local?
@@ -20,14 +23,13 @@ $ docker run -it --rm \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v "$(PWD)":/var/opt \
 	-p "3000:3000" \
-	cnadiminti/aws-sam-local
-
+	xevo/aws-sam-local
 
 ```
 
 This will add your current directory as a volume to the container and publish host port to container port.
 
-For working examples please take a look at the [`Makefile`](https://github.com/cnadiminti/docker-aws-sam-local/blob/master/Makefile) and [`docker-compose.yaml`](https://github.com/cnadiminti/docker-aws-sam-local/blob/master/docker-compose.yaml) files in the source repository. Note that `PWD` above should resolve to a path on the host (the machine running Docker), not something within a Docker container.
+For working examples please take a look at the [`Makefile`](Makefile) and [`docker-compose.yaml`](/docker-compose.yaml) files in the source repository. Note that `PWD` above should resolve to a path on the host (the machine running Docker), not something within a Docker container.
 
 ## License
 
@@ -38,10 +40,10 @@ For working examples please take a look at the [`Makefile`](https://github.com/c
 
 ### Issues
 
-If you have any problems with or questions about this image, please contact us through a [GitHub issue](https://github.com/cnadiminti/docker-aws-sam-local/issues).
+If you have any problems with or questions about this image, please contact us through a GitHub issue
 
 ### Contributing
 
 You are invited to contribute new features, fixes, or updates, large or small; we are always thrilled to receive pull requests, and do our best to process them as fast as we can.
 
-Before you start to code, we recommend discussing your plans through a [GitHub issue](https://github.com/cnadiminti/docker-aws-sam-local/issues), especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.
+Before you start to code, we recommend discussing your plans through a GitHub, especially for more ambitious contributions. This gives other contributors a chance to point you in the right direction, give you feedback on your design, and help you find out if someone else is working on the same thing.

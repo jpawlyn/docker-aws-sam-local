@@ -1,8 +1,12 @@
+# cnadiminti was original maintainer if you want your own docker image then
+# replace with your Docker repo name
+# REPO := cnsadiminti
+REPO := xevo
 CMD := docker run -it --rm \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v "$(PWD)/example":/var/opt \
 	-p "3000:3000" \
-	cnadiminti/aws-sam-local
+	$(REPO)/aws-sam-local
 
 help:
 	@$(CMD)
@@ -20,4 +24,4 @@ local-start-api:
 	@$(CMD) local start-api --docker-volume-basedir "$(PWD)/example" --host 0.0.0.0
 
 build:
-	docker build -t cnadiminti/aws-sam-local .
+	docker build -t $(REPO)/aws-sam-local .
