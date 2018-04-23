@@ -20,13 +20,31 @@ search the Docker Hub
 First of course you need to install docker on your system. And then fork this
 repo and customize that Makefile with the location of 
 
-- BASEDIR. This is the location of your AWS Lamdbda
+- BASEDIR. This is the location of your AWS Lamdbda and by default it is pointed
+  at the (example)[example] directory in this repo. You will want to shift this
+to where your lambda actually lives when you fork this repo. Alternatively, if
+you don't want to change BASEDIR, you could also edit the
+[example/template.yaml] file and change the
+AWS::Serverless::Function::Properties::Handler::Path to whereever on the local
+system you have your lambda code
 - REPO. This is the location of the docker repo where the dockerfile lives, it
   defaults to the image stored on hub.docker.io/r/xevo right now, so adjust this
 if you want your own private docker image
 
+If you want to run this raw and add your own commands then run this. The two key
+ideas here are to link the docker management in the container with the host.
+This is because SAM local actually runs as a docker container so the
+aws-sam-local container needs to control other containers.
 
-If you want to run this raw and add your own commands then run this
+The second is that by default aws-sam-local assumes that the lambda files are in
+the same directory in which is was installed.
+
+## Docker Compose sample file
+This implements the same thing as the Makefile, it boots the docker image and
+points it to the [example] directory by default so feel free to change this and
+add this to your more complete docker compose.
+
+## Running from the console
 
 ```console
 $ docker run -it --rm \
