@@ -17,6 +17,16 @@ search the Docker Hub
 [Amazon AWS SAM Local](https://github.com/awslabs/aws-sam-local) is a tool for local development and testing of Serverless applications. It can be used to test functions locally, start a local API Gateway from a SAM template, validate a SAM template, and generate sample payloads for various event sources.
 
 ## How to use this image?
+First of course you need to install docker on your system. And then fork this
+repo and customize that Makefile with the location of 
+
+- BASEDIR. This is the location of your AWS Lamdbda
+- REPO. This is the location of the docker repo where the dockerfile lives, it
+  defaults to the image stored on hub.docker.io/r/xevo right now, so adjust this
+if you want your own private docker image
+
+
+If you want to run this raw and add your own commands then run this
 
 ```console
 $ docker run -it --rm \
