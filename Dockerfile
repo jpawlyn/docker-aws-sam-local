@@ -1,18 +1,10 @@
 FROM alpine:3.8
 
-ENV VERSION=0.5.0
-
-RUN apk add --no-cache curl && \
-    curl -sSLO https://github.com/awslabs/aws-sam-local/archive/v${VERSION}/sam_${VERSION}_linux_386.tar.gz && \
-    tar -C /usr/local/bin -zxvf /sam_${VERSION}_linux_386.tar.gz && \
-    apk del curl && \
-    rm -f /sam_${VERSION}_linux_386.tar.gz
-
 # awscli for "sam package" and "sam deploy"
-RUN apk add --no-cache py-pip && pip install awscli
+RUN apk add build-base && apk add alpine-sdk && sudo apk add python2-dev && apk add --no-cache py-pip && pip install awscli && pip install aws-sam-cli
 
 WORKDIR /var/opt
 
 EXPOSE 3000
 
-ENTRYPOINT ["/usr/local/bin/sam"]
+# ENTRYPOINT ["/usr/local/bin/sam"]
